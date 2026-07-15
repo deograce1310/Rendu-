@@ -17,3 +17,7 @@ IF espacement < diamBaguette THEN espacement = diamBaguette
 ! --- Valeurs dérivées ---
 r = diamBaguette / 2                                   ! rayon de la baguette
 largTotale = (nbBaguettes - 1) * espacement + diamBaguette   ! encombrement en largeur
+
+! encombrement : les paramètres A/B suivent la géométrie
+A = longBaguette
+B = largTotale

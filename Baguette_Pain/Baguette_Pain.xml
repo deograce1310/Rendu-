@@ -25,6 +25,10 @@ IF espacement < diamBaguette THEN espacement = diamBaguette
 
 r = diamBaguette / 2
 largTotale = (nbBaguettes - 1) * espacement + diamBaguette
+
+! encombrement : les paramètres A/B suivent la géométrie
+A = longBaguette
+B = largTotale
 	]]></Script_1D>
 
 	<Script_3D SectVersion="18" SectionFlags="0" SubIdent="0"><![CDATA[
@@ -144,11 +148,21 @@ UI_INFIELD  "matGrigne",               230, 290, 160, 20
 			<WDBotFrame>0</WDBotFrame>
 			<LayFlags>0</LayFlags>
 			<WDMirrorThickness>0</WDMirrorThickness>
-			<NumberOfParameters>9</NumberOfParameters>
+			<NumberOfParameters>11</NumberOfParameters>
 			<WDWallInset>0</WDWallInset>
 			<SymbolColor>0</SymbolColor>
 		</ParamSectHeader>
 		<Parameters>
+			<Length Name="A">
+				<Description><![CDATA["Longueur (encombrement)"]]></Description>
+				<Fix/>
+				<Value>0.650000</Value>
+			</Length>
+			<Length Name="B">
+				<Description><![CDATA["Largeur (encombrement)"]]></Description>
+				<Fix/>
+				<Value>0.235000</Value>
+			</Length>
 			<Length Name="longBaguette">
 				<Description><![CDATA["Longueur d'une baguette"]]></Description>
 				<Value>0.650000</Value>
