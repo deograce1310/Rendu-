@@ -4,9 +4,7 @@
      Fichier source XML convertible en .gsm avec LP_XMLConverter :
        LP_XMLConverter x2l Table_Parametrique.xml Table_Parametrique.gsm
      ============================================================ -->
-<Symbol Name="Table_Parametrique" IsPlaceable="true"
-        MainGUID="9491881E-C54D-448B-A8EA-AD7DA3692F6C"
-        RevGUID="AECBB7C7-D66F-4299-BC29-35BD45490E35">
+<Symbol IsPlaceable="true" MainGUID="9491881E-C54D-448B-A8EA-AD7DA3692F6C">
 
 	<Script_1D SectVersion="18" SectionFlags="0" SubIdent="0"><![CDATA[
 ! ===== SCRIPT MAITRE =====
