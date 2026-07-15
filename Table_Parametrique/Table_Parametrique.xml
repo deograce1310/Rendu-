@@ -109,7 +109,7 @@ UI_INFIELD  "matPieds",             230, 290, 160, 20
 	<ParamSection SectVersion="30" SectionFlags="0" SubIdent="0">
 		<ParamSectHeader>
 			<Version>3</Version>
-			<AutoHotspots>0</AutoHotspots>
+			<AutoHotspots>false</AutoHotspots>
 			<HoleBits>0</HoleBits>
 			<StatBits>0</StatBits>
 			<WDLeftFrame>0</WDLeftFrame>
