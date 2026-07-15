@@ -1,0 +1,15 @@
+! ============================================================
+!  SCRIPT 2D — symbole en plan (projection du modèle 3D)
+! ============================================================
+
+PEN stylo
+
+! --- Points chauds 2D (poignées) ---
+HOTSPOT2 0,                0
+HOTSPOT2 longBaguette,     0
+HOTSPOT2 0,                largTotale
+HOTSPOT2 longBaguette,     largTotale
+HOTSPOT2 longBaguette / 2, largTotale / 2
+
+! --- Vue de dessus générée depuis le modèle 3D ---
+PROJECT2 3, 270, 2

@@ -1,0 +1,19 @@
+! ============================================================
+!  SCRIPT MAITRE (Master Script)
+!  Baguettes de pain — objet bibliothèque ArchiCAD (GDL)
+!  Exécuté avant tous les autres scripts.
+! ============================================================
+
+! --- Garde-fous sur les paramètres ---
+IF longBaguette < 0.20 THEN longBaguette = 0.20
+IF diamBaguette < 0.03 THEN diamBaguette = 0.03
+IF diamBaguette > longBaguette / 3 THEN diamBaguette = longBaguette / 3
+
+nbBaguettes = MAX(1, INT(nbBaguettes))
+nbGrignes   = MAX(1, INT(nbGrignes))
+
+IF espacement < diamBaguette THEN espacement = diamBaguette
+
+! --- Valeurs dérivées ---
+r = diamBaguette / 2                                   ! rayon de la baguette
+largTotale = (nbBaguettes - 1) * espacement + diamBaguette   ! encombrement en largeur

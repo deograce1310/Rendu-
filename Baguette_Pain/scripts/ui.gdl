@@ -1,0 +1,28 @@
+! ============================================================
+!  SCRIPT INTERFACE (UI Script)
+!  Page de réglages personnalisée dans la boîte de dialogue
+! ============================================================
+
+UI_DIALOG "Baguettes de pain"
+
+UI_GROUPBOX "Dimensions", 10, 10, 424, 105
+UI_OUTFIELD "Longueur d'une baguette",  25,  35, 180, 20
+UI_INFIELD  "longBaguette",            230,  35, 120, 20
+UI_OUTFIELD "Diamètre",                 25,  60, 180, 20
+UI_INFIELD  "diamBaguette",            230,  60, 120, 20
+UI_OUTFIELD "Espacement (entraxe)",     25,  85, 180, 20
+UI_INFIELD  "espacement",              230,  85, 120, 20
+
+UI_GROUPBOX "Composition", 10, 125, 424, 105
+UI_OUTFIELD "Nombre de baguettes",      25, 150, 180, 20
+UI_INFIELD  "nbBaguettes",             230, 150, 120, 20
+UI_OUTFIELD "Grignes sur le dessus",    25, 175, 180, 20
+UI_INFIELD  "grignes",                 230, 175, 120, 20
+UI_OUTFIELD "Nombre de grignes",        25, 200, 180, 20
+UI_INFIELD  "nbGrignes",               230, 200, 120, 20
+
+UI_GROUPBOX "Apparence", 10, 240, 424, 80
+UI_OUTFIELD "Matériau du pain",         25, 265, 180, 20
+UI_INFIELD  "matPain",                 230, 265, 160, 20
+UI_OUTFIELD "Matériau des grignes",     25, 290, 180, 20
+UI_INFIELD  "matGrigne",               230, 290, 160, 20

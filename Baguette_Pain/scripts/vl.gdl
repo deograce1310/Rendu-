@@ -1,0 +1,10 @@
+! ============================================================
+!  SCRIPT PARAMETRES (Parameter Script)
+!  Bornes des valeurs proposées dans la boîte de dialogue
+! ============================================================
+
+VALUES "longBaguette" RANGE [0.20, 1.20]
+VALUES "diamBaguette" RANGE [0.03, 0.15]
+VALUES "espacement"   RANGE [0.03, 0.50]
+VALUES "nbBaguettes"  RANGE [1, 12]
+VALUES "nbGrignes"    RANGE [1, 9]

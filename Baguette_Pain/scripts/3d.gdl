@@ -1,0 +1,65 @@
+! ============================================================
+!  SCRIPT 3D
+!  Baguettes de pain — corps fuselé (révolution) + grignes
+! ============================================================
+
+PEN stylo
+
+FOR i = 1 TO nbBaguettes
+	! position de la baguette n° i
+	ADD 0, r + (i - 1) * espacement, 0
+
+	! légère rotation alternée pour un rendu plus naturel
+	angAlt = (((i MOD 2) * 2) - 1) * 2.5
+	ADD longBaguette / 2, 0, 0
+	ROTz angAlt
+	ADD -longBaguette / 2, 0, 0
+
+	GOSUB 100
+	DEL 4
+NEXT i
+
+! --- Points chauds 3D (encombrement) ---
+HOTSPOT 0,            0,          0
+HOTSPOT longBaguette, 0,          0
+HOTSPOT 0,            largTotale, 0
+HOTSPOT longBaguette, largTotale, 0
+HOTSPOT longBaguette / 2, largTotale / 2, diamBaguette
+
+END
+
+! ------------------------------------------------------------
+! Sous-routine : une baguette (origine = pointe, posée au sol)
+! ------------------------------------------------------------
+100:
+	MATERIAL matPain
+
+	! corps fuselé : profil de rayon tourné autour de l'axe X
+	ADD 0, 0, r
+	REVOLVE 9, 360, 16 + 32,
+		0,                     0,          0,
+		0.04 * longBaguette,   0.55 * r,   0,
+		0.10 * longBaguette,   0.85 * r,   0,
+		0.18 * longBaguette,   r,          0,
+		0.82 * longBaguette,   r,          0,
+		0.90 * longBaguette,   0.85 * r,   0,
+		0.96 * longBaguette,   0.55 * r,   0,
+		0.995 * longBaguette,  0.25 * r,   0,
+		longBaguette,          0,          0
+	DEL 1
+
+	! grignes (entailles décoratives en biais sur le dessus)
+	IF grignes THEN
+		MATERIAL matGrigne
+		dGr = 0.6 * longBaguette / nbGrignes    ! pas entre grignes
+		lGr = 0.6 * dGr                          ! longueur d'une grigne
+		FOR g = 1 TO nbGrignes
+			gx = 0.2 * longBaguette + (g - 0.5) * dGr
+			ADD gx, 0, 2 * r - 0.005
+			ROTz 30
+			ADD -lGr / 2, -0.004, 0
+			BLOCK lGr, 0.008, 0.008
+			DEL 3
+		NEXT g
+	ENDIF
+RETURN
