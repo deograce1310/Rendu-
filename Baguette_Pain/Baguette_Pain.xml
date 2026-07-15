@@ -6,6 +6,12 @@
      ============================================================ -->
 <Symbol IsArchivable="true" IsPlaceable="true" MainGUID="267F028B-8A83-46B1-B207-FE587282E54E" MigrationValue="Normal" Owner="1196638531" Signature="1196644685" Version="44">
 
+	<Ancestry SectVersion="1" SectionFlags="0" SubIdent="0" Template="false">
+		<MainGUID>F938E33A-329D-4A36-BE3E-85E126820996</MainGUID>
+	</Ancestry>
+
+	<CalledMacros SectVersion="5" SectionFlags="0" SubIdent="0"/>
+
 	<Script_1D SectVersion="18" SectionFlags="0" SubIdent="0"><![CDATA[
 ! ===== SCRIPT MAITRE =====
 IF longBaguette < 0.20 THEN longBaguette = 0.20
