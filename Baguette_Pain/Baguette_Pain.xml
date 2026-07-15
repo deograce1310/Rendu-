@@ -127,7 +127,21 @@ UI_INFIELD  "matGrigne",               230, 290, 160, 20
 	]]></Script_UI>
 
 	<ParamSection SectVersion="30" SectionFlags="0" SubIdent="0">
-		<ParamSectHeader/>
+		<ParamSectHeader>
+			<Version>3</Version>
+			<AutoHotspots>0</AutoHotspots>
+			<HoleBits>0</HoleBits>
+			<StatBits>0</StatBits>
+			<WDLeftFrame>0</WDLeftFrame>
+			<WDRightFrame>0</WDRightFrame>
+			<WDTopFrame>0</WDTopFrame>
+			<WDBotFrame>0</WDBotFrame>
+			<LayFlags>0</LayFlags>
+			<WDMirrorThickness>0</WDMirrorThickness>
+			<NumberOfParameters>9</NumberOfParameters>
+			<WDWallInset>0</WDWallInset>
+			<SymbolColor>0</SymbolColor>
+		</ParamSectHeader>
 		<Parameters>
 			<Length Name="longBaguette">
 				<Description><![CDATA["Longueur d'une baguette"]]></Description>
