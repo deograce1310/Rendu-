@@ -4,7 +4,7 @@
      Fichier source XML convertible en .gsm avec LP_XMLConverter :
        LP_XMLConverter x2l Baguette_Pain.xml Baguette_Pain.gsm
      ============================================================ -->
-<Symbol IsPlaceable="true" MainGUID="267F028B-8A83-46B1-B207-FE587282E54E">
+<Symbol IsArchivable="true" IsPlaceable="true" MainGUID="267F028B-8A83-46B1-B207-FE587282E54E" MigrationValue="Normal" Owner="1196638531" Signature="1196644685" Version="44">
 
 	<Script_1D SectVersion="18" SectionFlags="0" SubIdent="0"><![CDATA[
 ! ===== SCRIPT MAITRE =====
