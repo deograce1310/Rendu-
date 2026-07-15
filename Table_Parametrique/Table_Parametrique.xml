@@ -110,8 +110,8 @@ UI_INFIELD  "matPieds",             230, 290, 160, 20
 		<ParamSectHeader>
 			<Version>3</Version>
 			<AutoHotspots>false</AutoHotspots>
-			<HoleBits>0</HoleBits>
-			<StatBits>0</StatBits>
+			<HoleBits/>
+			<StatBits/>
 			<WDLeftFrame>0</WDLeftFrame>
 			<WDRightFrame>0</WDRightFrame>
 			<WDTopFrame>0</WDTopFrame>
