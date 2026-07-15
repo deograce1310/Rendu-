@@ -1,0 +1,30 @@
+! ============================================================
+!  SCRIPT 3D
+!  Table paramétrique — 4 pieds + plateau
+! ============================================================
+
+PEN stylo
+
+! --- Les 4 pieds ---
+MATERIAL matPieds
+FOR i = 1 TO 4
+	ADD px[i], py[i], 0
+	BLOCK largPied, largPied, hPieds
+	DEL 1
+NEXT i
+
+! --- Le plateau ---
+MATERIAL matPlateau
+ADD 0, 0, hPieds
+BLOCK A, B, epPlateau
+DEL 1
+
+! --- Points chauds 3D (poignées d'édition) ---
+HOTSPOT 0, 0, 0
+HOTSPOT A, 0, 0
+HOTSPOT 0, B, 0
+HOTSPOT A, B, 0
+HOTSPOT 0, 0, hauteurTable
+HOTSPOT A, 0, hauteurTable
+HOTSPOT 0, B, hauteurTable
+HOTSPOT A, B, hauteurTable

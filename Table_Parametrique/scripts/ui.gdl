@@ -1,0 +1,28 @@
+! ============================================================
+!  SCRIPT INTERFACE (UI Script)
+!  Page de réglages personnalisée dans la boîte de dialogue
+! ============================================================
+
+UI_DIALOG "Table paramétrique"
+
+UI_GROUPBOX "Dimensions", 10, 10, 424, 130
+UI_OUTFIELD "Longueur (A)",          25,  35, 180, 20
+UI_INFIELD  "A",                    230,  35, 120, 20
+UI_OUTFIELD "Largeur (B)",           25,  60, 180, 20
+UI_INFIELD  "B",                    230,  60, 120, 20
+UI_OUTFIELD "Hauteur totale",        25,  85, 180, 20
+UI_INFIELD  "hauteurTable",         230,  85, 120, 20
+UI_OUTFIELD "Épaisseur du plateau",  25, 110, 180, 20
+UI_INFIELD  "epPlateau",            230, 110, 120, 20
+
+UI_GROUPBOX "Pieds", 10, 150, 424, 80
+UI_OUTFIELD "Section des pieds",     25, 175, 180, 20
+UI_INFIELD  "largPied",             230, 175, 120, 20
+UI_OUTFIELD "Retrait depuis le bord",25, 200, 180, 20
+UI_INFIELD  "retraitPied",          230, 200, 120, 20
+
+UI_GROUPBOX "Matériaux", 10, 240, 424, 80
+UI_OUTFIELD "Matériau du plateau",   25, 265, 180, 20
+UI_INFIELD  "matPlateau",           230, 265, 160, 20
+UI_OUTFIELD "Matériau des pieds",    25, 290, 180, 20
+UI_INFIELD  "matPieds",             230, 290, 160, 20

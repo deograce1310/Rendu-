@@ -1,0 +1,26 @@
+! ============================================================
+!  SCRIPT MAITRE (Master Script)
+!  Table paramétrique — objet bibliothèque ArchiCAD (GDL)
+!  Exécuté avant tous les autres scripts.
+! ============================================================
+
+! --- Garde-fous sur les paramètres ---
+IF hauteurTable < 0.30 THEN hauteurTable = 0.30
+IF epPlateau   < 0.01 THEN epPlateau   = 0.01
+IF epPlateau   > hauteurTable / 2 THEN epPlateau = hauteurTable / 2
+IF largPied    < 0.02 THEN largPied    = 0.02
+IF retraitPied < 0    THEN retraitPied = 0
+
+! Le retrait des pieds ne doit pas dépasser la moitié du plateau
+IF retraitPied > A / 2 - largPied THEN retraitPied = MAX(0, A / 2 - largPied)
+IF retraitPied > B / 2 - largPied THEN retraitPied = MAX(0, B / 2 - largPied)
+
+! --- Valeurs dérivées ---
+hPieds = hauteurTable - epPlateau        ! hauteur libre sous plateau
+
+! --- Position des 4 pieds (coin bas-gauche de chaque pied) ---
+DIM px[4], py[4]
+px[1] = retraitPied                  : py[1] = retraitPied
+px[2] = A - retraitPied - largPied   : py[2] = retraitPied
+px[3] = retraitPied                  : py[3] = B - retraitPied - largPied
+px[4] = A - retraitPied - largPied   : py[4] = B - retraitPied - largPied

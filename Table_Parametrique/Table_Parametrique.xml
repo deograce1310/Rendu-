@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================
+     Table paramétrique - Objet bibliothèque ArchiCAD
+     Fichier source XML convertible en .gsm avec LP_XMLConverter :
+       LP_XMLConverter x2l Table_Parametrique.xml Table_Parametrique.gsm
+     ============================================================ -->
+<Symbol Name="Table_Parametrique" IsPlaceable="true"
+        MainGUID="9491881E-C54D-448B-A8EA-AD7DA3692F6C"
+        RevGUID="AECBB7C7-D66F-4299-BC29-35BD45490E35">
+
+	<Script_1D SectVersion="18" SectionFlags="0" SubIdent="0"><![CDATA[
+! ===== SCRIPT MAITRE =====
+IF hauteurTable < 0.30 THEN hauteurTable = 0.30
+IF epPlateau   < 0.01 THEN epPlateau   = 0.01
+IF epPlateau   > hauteurTable / 2 THEN epPlateau = hauteurTable / 2
+IF largPied    < 0.02 THEN largPied    = 0.02
+IF retraitPied < 0    THEN retraitPied = 0
+IF retraitPied > A / 2 - largPied THEN retraitPied = MAX(0, A / 2 - largPied)
+IF retraitPied > B / 2 - largPied THEN retraitPied = MAX(0, B / 2 - largPied)
+
+hPieds = hauteurTable - epPlateau
+
+DIM px[4], py[4]
+px[1] = retraitPied                  : py[1] = retraitPied
+px[2] = A - retraitPied - largPied   : py[2] = retraitPied
+px[3] = retraitPied                  : py[3] = B - retraitPied - largPied
+px[4] = A - retraitPied - largPied   : py[4] = B - retraitPied - largPied
+	]]></Script_1D>
+
+	<Script_3D SectVersion="18" SectionFlags="0" SubIdent="0"><![CDATA[
+! ===== SCRIPT 3D =====
+PEN stylo
+
+MATERIAL matPieds
+FOR i = 1 TO 4
+	ADD px[i], py[i], 0
+	BLOCK largPied, largPied, hPieds
+	DEL 1
+NEXT i
+
+MATERIAL matPlateau
+ADD 0, 0, hPieds
+BLOCK A, B, epPlateau
+DEL 1
+
+HOTSPOT 0, 0, 0
+HOTSPOT A, 0, 0
+HOTSPOT 0, B, 0
+HOTSPOT A, B, 0
+HOTSPOT 0, 0, hauteurTable
+HOTSPOT A, 0, hauteurTable
+HOTSPOT 0, B, hauteurTable
+HOTSPOT A, B, hauteurTable
+	]]></Script_3D>
+
+	<Script_2D SectVersion="18" SectionFlags="0" SubIdent="0"><![CDATA[
+! ===== SCRIPT 2D =====
+PEN stylo
+
+HOTSPOT2 0, 0
+HOTSPOT2 A, 0
+HOTSPOT2 0, B
+HOTSPOT2 A, B
+HOTSPOT2 A/2, B/2
+
+RECT2 0, 0, A, B
+
+LINE_TYPE 2
+FOR i = 1 TO 4
+	RECT2 px[i], py[i], px[i] + largPied, py[i] + largPied
+NEXT i
+	]]></Script_2D>
+
+	<Script_VL SectVersion="18" SectionFlags="0" SubIdent="0"><![CDATA[
+! ===== SCRIPT PARAMETRES =====
+VALUES "A"            RANGE [0.40, 4.00]
+VALUES "B"            RANGE [0.30, 2.00]
+VALUES "hauteurTable" RANGE [0.30, 1.20]
+VALUES "epPlateau"    RANGE [0.01, 0.10]
+VALUES "largPied"     RANGE [0.02, 0.15]
+VALUES "retraitPied"  RANGE [0.00, 0.50]
+	]]></Script_VL>
+
+	<Script_UI SectVersion="18" SectionFlags="0" SubIdent="0"><![CDATA[
+! ===== SCRIPT INTERFACE =====
+UI_DIALOG "Table paramétrique"
+
+UI_GROUPBOX "Dimensions", 10, 10, 424, 130
+UI_OUTFIELD "Longueur (A)",          25,  35, 180, 20
+UI_INFIELD  "A",                    230,  35, 120, 20
+UI_OUTFIELD "Largeur (B)",           25,  60, 180, 20
+UI_INFIELD  "B",                    230,  60, 120, 20
+UI_OUTFIELD "Hauteur totale",        25,  85, 180, 20
+UI_INFIELD  "hauteurTable",         230,  85, 120, 20
+UI_OUTFIELD "Épaisseur du plateau",  25, 110, 180, 20
+UI_INFIELD  "epPlateau",            230, 110, 120, 20
+
+UI_GROUPBOX "Pieds", 10, 150, 424, 80
+UI_OUTFIELD "Section des pieds",     25, 175, 180, 20
+UI_INFIELD  "largPied",             230, 175, 120, 20
+UI_OUTFIELD "Retrait depuis le bord",25, 200, 180, 20
+UI_INFIELD  "retraitPied",          230, 200, 120, 20
+
+UI_GROUPBOX "Matériaux", 10, 240, 424, 80
+UI_OUTFIELD "Matériau du plateau",   25, 265, 180, 20
+UI_INFIELD  "matPlateau",           230, 265, 160, 20
+UI_OUTFIELD "Matériau des pieds",    25, 290, 180, 20
+UI_INFIELD  "matPieds",             230, 290, 160, 20
+	]]></Script_UI>
+
+	<ParamSection SectVersion="30" SectionFlags="0" SubIdent="0">
+		<ParamSectHeader/>
+		<Parameters>
+			<Length Name="A">
+				<Description><![CDATA["Longueur de la table"]]></Description>
+				<Value>1.400000</Value>
+			</Length>
+			<Length Name="B">
+				<Description><![CDATA["Largeur de la table"]]></Description>
+				<Value>0.800000</Value>
+			</Length>
+			<Length Name="hauteurTable">
+				<Description><![CDATA["Hauteur totale"]]></Description>
+				<Value>0.750000</Value>
+			</Length>
+			<Length Name="epPlateau">
+				<Description><![CDATA["Épaisseur du plateau"]]></Description>
+				<Value>0.040000</Value>
+			</Length>
+			<Length Name="largPied">
+				<Description><![CDATA["Section des pieds"]]></Description>
+				<Value>0.060000</Value>
+			</Length>
+			<Length Name="retraitPied">
+				<Description><![CDATA["Retrait des pieds depuis le bord"]]></Description>
+				<Value>0.050000</Value>
+			</Length>
+			<Material Name="matPlateau">
+				<Description><![CDATA["Matériau du plateau"]]></Description>
+				<Value>1</Value>
+			</Material>
+			<Material Name="matPieds">
+				<Description><![CDATA["Matériau des pieds"]]></Description>
+				<Value>1</Value>
+			</Material>
+			<PenColor Name="stylo">
+				<Description><![CDATA["Stylo 2D"]]></Description>
+				<Value>1</Value>
+			</PenColor>
+		</Parameters>
+	</ParamSection>
+</Symbol>
